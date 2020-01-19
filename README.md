@@ -1,4 +1,4 @@
-# Portfolio Theory - Constructing a Optimal Allocation
+# Portfolio Theory - Constructing an Optimal Portfolio
 ##### Author: Timothy Cumberland
 ##### Last Updated: 2020-01-19
 
