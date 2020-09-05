@@ -10,9 +10,9 @@ from numpy.linalg import inv, pinv
 
 pd.options.display.float_format = '{:,.4f}'.format
 
-tickers = ['VTI', 'BAR']#, 'VCE.TRT', 'VGK', 'SCHH']#, 'REM', 'BND', 'VAB.TRT']
+tickers = ['VTI', 'BAR', 'VCE.TRT', 'VGK', 'SCHH']#, 'REM', 'BND', 'VAB.TRT']
 columns = [ticker + '_Ret' for ticker in tickers]
-weight = np.matrix(np.array([0.5,0.5]))#,0.2,0.2,0.2]))
+weight = np.matrix(np.array([0.2,0.2,0.2,0.2,0.2]))
 
 # for ticker in tickers:
 #     rdd.oneYearDump_logRet(ticker,fileName=ticker+'-2020', startDate=datetime.datetime(2000, 1,1), endDate=datetime.datetime(2020, 6, 30))

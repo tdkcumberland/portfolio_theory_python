@@ -10,3 +10,10 @@ Stock price data are taken from Alpha Advantage throug the pandas.DataReader wra
 
 ### Modules
 retrieveDumpData.py has six functions to retrieve stock price data, calculate returns and dump the output to a pickle file. All functions are documented.
+
+### Example
+
+Below is a frontier for five different ETF: 'VTI', 'BAR', 'VCE.TRT', 'VGK', 'SCHH'
+
+
+![Frontier](https://github.com/tdkcumberland/portfolio_theory_python/blob/master/Example.png)
