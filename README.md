@@ -1,5 +1,4 @@
 # Portfolio Theory - Constructing an Optimal Portfolio
-##### Last Updated: 2020-01-19
 
 As someone who wants to take charge of his own finance, I decided to work on this small project to create an optimal portfolio based on Harry Markowitz portfoliot theory.
 
