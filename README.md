@@ -4,6 +4,8 @@ As someone who wants to take charge of his own finance, I decided to work on thi
 
 My goal is to apply the results of this directly to my own portfolio.
 
+Book that I reference when building this: 'Python for Finance' by Yuxing Yan (Packt Publishing 2017)
+
 ### Data source
 Stock price data are taken from Alpha Advantage throug the pandas.DataReader wrapper.
 
