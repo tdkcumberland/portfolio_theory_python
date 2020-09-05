@@ -23,9 +23,15 @@ def oneYearDump_logRet(ticker, fileName, startDate=datetime.date.today() - datet
         --Data is defaulted to "av-daily-adjusted" from Alpha Advantage
         --No means to change the return column name as well as the name of column to perform the calculation on
     """
-    dataFrame = retrieveData(ticker, startDate=startDate, endDate=endDate)
-    df = calcReturn(dataFrame,ticker=ticker)
-    dumpData(df,fileName)
+    try:
+        print('Attempting to download data for: ' + ticker)
+        dataFrame = retrieveData(ticker, startDate=startDate, endDate=endDate)
+        dataFrame.loc[abs(dataFrame['adjusted close'] / dataFrame['close']) > 1.5, 'adjusted close'] = dataFrame['close']
+        df = calcReturn_log(dataFrame,ticker=ticker)
+        dumpData(df,fileName)
+    except ValueError:
+        print('Cannot download' + ticker + ' data...')
+
 
 def retrieveData(ticker, startDate=datetime.date.today() - datetime.timedelta(days=365), endDate=datetime.date.today(), apiKey='QSMUWQIPLV31UH4Y',dataSource='av-daily-adjusted'):
     """
@@ -62,9 +68,11 @@ def calcReturn_log(df,col='adjusted close', returnCol='Ret',reverse=False,ticker
     """
     returnCol = ticker + '_Ret' if ticker != '' else returnCol
     if reverse==False:
-        df[returnCol]= np.log(df[col][1:]/df[col][:-1])
+        _tmp = np.log(df[col][1:].to_numpy()/df[col][:-1].to_numpy())
+        df[returnCol] = np.append(_tmp, np.array([0.]))
     else:
-        df[returnCol]= np.log(df[col][:-1]/df[col][1:])
+        _tmp = np.log(df[col][:-1].to_numpy()/df[col][1:].to_numpy())
+        df[returnCol]= np.append(np.array([0.], _tmp))
     return df
 
 def calcReturn(df,col='adjusted close', returnCol='Ret',reverse=False,ticker=''):
